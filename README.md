@@ -30,7 +30,7 @@ has_many :orders
 | condition_id       | integer    | null: false                    |
 | contribution_id    | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| day_id             | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 ##　imageはActiveStorageで実装
 
