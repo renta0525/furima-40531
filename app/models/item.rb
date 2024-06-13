@@ -24,6 +24,5 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  validates :price, numericality:{ with: /\A[0-9]+\z/, message: 'should be half-width numbers' }
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 end

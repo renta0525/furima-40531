@@ -61,10 +61,15 @@ RSpec.describe Item, type: :model do
       it 'priceが全角では登録できない' do
         @item.price = '３３３'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price should be half-width numbers", "Price is not a number")
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
-      it 'priceが300-9999999以内でないと登録できない' do
-        @item.price = '99999999'
+      it 'priceが299円以下の場合' do
+        @item.price = '100'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+      it 'priceが10000000円以上の場合の場合' do
+        @item.price = '100000000'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
