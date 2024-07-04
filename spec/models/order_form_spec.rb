@@ -64,13 +64,17 @@ RSpec.describe OrderForm, type: :model do
       it 'phone_numberが12桁以上の全角数値では登録できない' do
         @orderform.phone_number = '００００００００００００'
         @orderform.valid?
-        binding.pry
         expect(@orderform.errors.full_messages).to include("Phone number is invalid")
       end
       it 'phone_numberが11桁の全角数値では登録できない' do
         @orderform.phone_number = '０００００００００００'
         @orderform.valid?
         expect(@orderform.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'tokenが空では登録できない' do
+        @orderform.token = nil
+        @orderform.valid?
+        expect(@orderform.errors.full_messages).to include("Token can't be blank")
       end
     end
   end 
