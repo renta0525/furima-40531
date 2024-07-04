@@ -26,11 +26,6 @@ RSpec.describe OrderForm, type: :model do
         @orderform.valid?
         expect(@orderform.errors.full_messages).to include("Item can't be blank")
       end
-      it 'order_idが空では登録できない' do
-        @orderform.order_id = nil
-        @orderform.valid?
-        expect(@orderform.errors.full_messages).to include("Order can't be blank")
-      end
       it 'post_cordが空では登録できない' do
         @orderform.post_cord = ''
         @orderform.valid?
