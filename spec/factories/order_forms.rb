@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :order_form do
-    user_id                 {1}
-    item_id                 {1}
     post_cord               {Faker::Number.leading_zero_number(digits: 3) + '-' + Faker::Number.leading_zero_number(digits: 4)}
     prefecture_id           {Faker::Number.between(from: 2, to: 48)}
     municipalities          {Faker::Address.city}
