@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :move_to_index, only: [:index, :create]
 
+  
   def index
     @orderform = OrderForm.new
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
